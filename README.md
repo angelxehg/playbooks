@@ -18,4 +18,5 @@ Install and configure Ansible, hosts and vars
 
 Setup a new VPS with analitics and update packages
 
-- Run playbook: `ansible-playbook -i hosts.yml start.yml -K`
+- Run playbook: `ansible-playbook -i hosts.yml start.yml`
+<!-- `ansible-playbook -i hosts.yml start.yml -K` -->
