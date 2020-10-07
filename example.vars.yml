@@ -3,3 +3,4 @@ password: $6$wppqeJRzDiGk...
 github_username: example
 git_user_name: "User Name"
 git_user_email: "user@example.com"
+selected_hosts: all

@@ -1,0 +1,50 @@
+- name: required packages are installed
+  become: yes
+  apt:
+    pkg:
+      - docker
+      - docker-compose
+    state: present
+  when: wsl_mode is not defined # skip when wsl_mode
+
+- name: docker service is active
+  become: yes
+  service:
+    name: docker
+    state: started
+  when: wsl_mode is not defined # skip when wsl_mode
+
+- name: "group 'docker' is present"
+  become: yes
+  group:
+    name: www
+    state: present
+  when: wsl_mode is not defined # skip when wsl_mode
+
+- name: "'{{ host_user }}' is in 'docker' group"
+  become: yes
+  user:
+    name: "{{ host_user }}"
+    groups: docker
+    append: yes
+  when: wsl_mode is not defined # skip when wsl_mode
+
+- name: ufw http is allowed
+  become: yes
+  ufw:
+    rule: allow
+    port: "80"
+    proto: tcp
+  when: wsl_mode is not defined # skip when wsl_mode
+  notify:
+    - enable ufw
+
+- name: ufw 8000 is allowed
+  become: yes
+  ufw:
+    rule: allow
+    port: "8000"
+    proto: tcp
+  when: wsl_mode is not defined # skip when wsl_mode
+  notify:
+    - enable ufw
