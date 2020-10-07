@@ -1,8 +1,8 @@
 remote:
   hosts:
-    angel-hyper:
-      ansible_host: 157.245.171.70
+    localhost:
+      ansible_host: 127.0.0.1
       ansible_port: 22
-      host_user: root
+      host_user: angel
   vars:
     ansible_python_interpreter: /usr/bin/python3

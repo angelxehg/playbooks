@@ -4,8 +4,19 @@
   hosts: all
   remote_user: root
   tasks:
-    - name: Check all packages are up to date
+    - name: "All packages are up to date"
       become: "true"
       apt:
         upgrade: "yes"
         update_cache: "yes"
+    - name: "User '{{ username }}' exists with sudo"
+      user:
+        name: "{{ username }}"
+        shell: /bin/bash
+        password: "{{ password }}"
+        group: sudo
+    - name: "User '{{ username }}' has authorized keys"
+      ansible.posix.authorized_key:
+        user: "{{ username }}"
+        state: present
+        key: "https://github.com/{{ github_username }}.keys"
