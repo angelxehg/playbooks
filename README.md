@@ -10,7 +10,7 @@ Install and configure Ansible, hosts and vars
 
 - Create custom configuration files:
 
-  - Copy vars file: `cp example.playbook.yml vars.yml`
+  - Copy vars file: `cp example.vars.yml vars.yml`
 
   - Copy hosts file: `cp example.hosts.yml hosts.yml`
 
