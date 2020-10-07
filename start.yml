@@ -1,0 +1,11 @@
+---
+- vars_files:
+    - vars.yml
+  hosts: all
+  remote_user: root
+  tasks:
+    - name: Check all packages are up to date
+      become: "true"
+      apt:
+        upgrade: "yes"
+        update_cache: "yes"
