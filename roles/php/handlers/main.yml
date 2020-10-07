@@ -1,0 +1,3 @@
+---
+- name: setup composer
+  shell: echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc

@@ -1,0 +1,14 @@
+- name: required packages are present
+  become: yes
+  apt:
+    pkg:
+      - fish
+      - git
+      - htop
+      - ssh
+    state: present
+
+- name: default shell is fish
+  user:
+    name: "{{ host_user }}"
+    shell: /usr/bin/fish

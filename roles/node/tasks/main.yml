@@ -1,0 +1,16 @@
+- name: required packages are installed
+  become: yes
+  apt:
+    pkg:
+      - npm
+    state: present
+
+- name: ufw 8000 is allowed
+  become: yes
+  ufw:
+    rule: allow
+    port: "8000"
+    proto: tcp
+  when: wsl_mode is not defined # skip when wsl_mode
+  notify:
+    - enable ufw

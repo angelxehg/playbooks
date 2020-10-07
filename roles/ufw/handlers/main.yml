@@ -1,0 +1,7 @@
+---
+- name: enable ufw
+  become: yes
+  ufw:
+    state: enabled
+    policy: deny
+  when: wsl_mode is not defined # skip when wsl_mode

@@ -1,0 +1,12 @@
+- name: required packages are installed
+  become: yes
+  apt:
+    pkg:
+      - mongodb
+    state: present
+
+- name: mongodb service is active
+  become: yes
+  service:
+    name: mongodb
+    state: started
