@@ -14,13 +14,16 @@ Install and configure Ansible, hosts and vars
 
 - Create custom configuration files:
 
-  - Copy vars file: `cp example.vars.yml vars.yml`. Here you need a github account with ssh keys, git config details and the hashed password.
+  - Copy vars file: `cp example.vars.yml vars.yml`. Here you need a github account with ssh keys, git config details and the hashed password. You can also filter hosts.
 
-  - Copy hosts file: `cp example.hosts.yml hosts.yml`. Here you configure the hosts.
+  - Copy hosts file: `cp example.hosts.yml hosts.yml`. Here you configure the hosts direction, user and other host specific variables
 
 ## Configure new VPS
 
 Setup a new VPS with analitics and update packages
 
 - Run initial playbook: `ansible-playbook -i hosts.yml initial.yml`
-<!-- `ansible-playbook -i hosts.yml start.yml -K` -->
+
+## Run some playbooks
+
+- Run nodejs playbook: `ansible-playbook -i hosts.yml nodejs.yml -K`

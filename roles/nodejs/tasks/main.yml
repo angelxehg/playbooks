@@ -1,0 +1,7 @@
+- name: required packages are installed
+  become: yes
+  apt:
+    pkg:
+      - nodejs
+      - npm
+    state: present
