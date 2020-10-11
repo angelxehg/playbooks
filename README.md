@@ -27,3 +27,5 @@ Setup a new VPS with analitics and update packages
 ## Run some playbooks
 
 - Run nodejs playbook: `ansible-playbook -i hosts.yml nodejs.yml -K`
+
+- Run nodejs playbook: `ansible-playbook -i hosts.yml docker.yml -K`
