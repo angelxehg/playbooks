@@ -11,3 +11,11 @@ Configuración de la máquina Host
 - Copiar archivos de configuración:
   - Hosts: `cp ./config/hosts.yml ./`
   - Variables: `cp ./config/vars.yml ./`
+
+- Asegurate que tu clave privada tenga los permisos correctos: `chmod 600 [KEY]`
+
+## Ejecución
+
+Ejecución de los playbooks
+
+- Configuración minima: `ansible-playbook -i hosts.yml minimal.yml -K`
