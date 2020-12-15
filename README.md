@@ -18,4 +18,4 @@ Configuración de la máquina Host
 
 Ejecución de los playbooks
 
-- Configuración minima: `ansible-playbook -i hosts.yml minimal.yml -K`
+- Configuración minima: `ansible-playbook -i hosts.yml minimal.yml`
