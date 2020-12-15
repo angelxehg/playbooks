@@ -1,31 +1,21 @@
-# Oceanic Nova
+# Playbooks
 
-Configure new DigitalOcean VPS easily
+Colección de Ansible Playbooks para configurar distintos Stacks
 
-## Installation
+## Preparación
 
-Install and configure Ansible, hosts and vars
+Configuración de la máquina Host
 
-- Install ansible & dependencies: `sudo apt install ansible whois -y`
+- Instalar Ansible: `sudo apt install ansible whois -y`
 
-- Install plugins: `ansible-galaxy collection install ansible.posix`
+- Copiar archivos de configuración:
+  - Hosts: `cp ./config/hosts.yml ./`
+  - Variables: `cp ./config/vars.yml ./`
 
-- Generate hashed password: `mkpasswd --method=sha-512`
+- Asegurate que tu clave privada tenga los permisos correctos: `chmod 600 [KEY]`
 
-- Create custom configuration files:
+## Ejecución
 
-  - Copy vars file: `cp example.vars.yml vars.yml`. Here you need a github account with ssh keys, git config details and the hashed password. You can also filter hosts.
+Ejecución de los playbooks
 
-  - Copy hosts file: `cp example.hosts.yml hosts.yml`. Here you configure the hosts direction, user and other host specific variables
-
-## Configure new VPS
-
-Setup a new VPS with analitics and update packages
-
-- Run initial playbook: `ansible-playbook -i hosts.yml initial.yml`
-
-## Run some playbooks
-
-- Run nodejs playbook: `ansible-playbook -i hosts.yml nodejs.yml -K`
-
-- Run nodejs playbook: `ansible-playbook -i hosts.yml docker.yml -K`
+- Configuración minima: `ansible-playbook -i hosts.yml minimal.yml`

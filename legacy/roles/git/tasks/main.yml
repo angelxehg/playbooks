@@ -1,10 +1,3 @@
-- name: git is present
-  become: yes
-  apt:
-    pkg:
-      - git
-    state: present
-
 - name: git user.name is set
   git_config:
     name: user.name

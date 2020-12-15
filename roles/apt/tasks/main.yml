@@ -1,0 +1,5 @@
+- name: packages are up to date
+  become: "true"
+  apt:
+    upgrade: "yes"
+    update_cache: "yes"

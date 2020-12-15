@@ -1,2 +1,3 @@
-hosts.yml
-vars.yml
+/vars.yml
+/hosts.yml
+id_rsa*
