@@ -4,5 +4,6 @@
   hosts: all
   roles:
     - apt
+    - ufw
     - git
     - python
