@@ -20,4 +20,6 @@ Ejecución de los playbooks
 
 - Configuración minima: `ansible-playbook -i hosts.yml minimal.yml`
 
+- Instalación de NodeJS: `ansible-playbook -i hosts.yml nodejs.yml`
+
 - Instalación de Docker: `ansible-playbook -i hosts.yml docker.yml`

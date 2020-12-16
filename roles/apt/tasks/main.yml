@@ -3,3 +3,12 @@
   apt:
     upgrade: "yes"
     update_cache: "yes"
+
+- name: basic packages are present
+  become: yes
+  apt:
+    pkg:
+      - wget
+      - htop
+      - tmux
+    state: present

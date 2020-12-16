@@ -1,0 +1,23 @@
+- name: required packages are present
+  become: yes
+  apt:
+    pkg:
+      - nodejs
+      - npm
+    state: present
+
+- name: npm global directory is present
+  file:
+    path: "~/.npm-global"
+    owner: "{{ username }}"
+    state: directory
+    mode: 0755
+  register: npmglobal
+
+- name: configure global prefix
+  command: npm config set prefix '~/.npm-global'
+  when: npmglobal.changed
+
+- name: export new node global path
+  command: echo "export PATH=~/.npm-global/bin:$PATH" >> .profile
+  when: npmglobal.changed
