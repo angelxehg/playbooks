@@ -8,5 +8,5 @@
 - name: required packages are present
   become: yes
   apt:
-    pkg: "dotnet-sdk-3.1"
+    pkg: "dotnet-sdk-5.0"
     state: present
