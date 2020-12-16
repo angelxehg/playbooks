@@ -1,4 +1,4 @@
-- name: required packages are installed
+- name: required packages are present
   become: yes
   apt:
     pkg:
@@ -18,9 +18,9 @@
     name: www
     state: present
 
-- name: "'{{ host_user }}' is in 'docker' group"
+- name: "'{{ ansible_user }}' is in 'docker' group"
   become: yes
   user:
-    name: "{{ host_user }}"
+    name: "{{ ansible_user }}"
     groups: [docker]
     append: yes

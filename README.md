@@ -19,3 +19,5 @@ Configuración de la máquina Host
 Ejecución de los playbooks
 
 - Configuración minima: `ansible-playbook -i hosts.yml minimal.yml`
+
+- Instalación de Docker: `ansible-playbook -i hosts.yml docker.yml`
