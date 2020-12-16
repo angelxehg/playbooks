@@ -12,12 +12,11 @@
     owner: "{{ ansible_user }}"
     state: directory
     mode: 0755
-  register: npmglobal
+  notify:
+    - configure npm global
 
-- name: configure global prefix
-  command: npm config set prefix '~/.npm-global'
-  when: npmglobal.changed
-
-- name: export new node global path
-  command: echo "export PATH=~/.npm-global/bin:$PATH" >> .profile
-  when: npmglobal.changed
+- name: npm packages in PATH
+  lineinfile:
+    path: "~/.profile"
+    line: "export PATH=~/.npm-global/bin:$PATH"
+    create: yes
