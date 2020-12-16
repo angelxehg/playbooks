@@ -1,9 +1,0 @@
----
-- vars_files:
-    - vars.yml
-  hosts: "{{ selected_hosts }}"
-  roles:
-    - apt
-    - ufw
-    - git
-    - dotnet
