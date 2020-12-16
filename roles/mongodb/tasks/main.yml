@@ -1,4 +1,4 @@
-- name: required packages are installed
+- name: required packages are present
   become: yes
   apt:
     pkg:
