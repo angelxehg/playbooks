@@ -1,0 +1,8 @@
+- name: firewall rule 'ssh' is limited
+  become: yes
+  ufw:
+    rule: limit
+    port: ssh
+    proto: tcp
+  notify:
+    - enable ufw

@@ -19,3 +19,11 @@ Configuración de la máquina Host
 Ejecución de los playbooks
 
 - Configuración minima: `ansible-playbook -i hosts.yml minimal.yml`
+
+- Instalación de Python: `ansible-playbook -i hosts.yml python.yml`
+
+- Instalación de NodeJS: `ansible-playbook -i hosts.yml nodejs.yml`
+
+- Instalación de Docker: `ansible-playbook -i hosts.yml docker.yml`
+
+- Instalación de MongoDB: `ansible-playbook -i hosts.yml mongodb.yml`

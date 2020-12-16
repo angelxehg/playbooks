@@ -6,3 +6,4 @@
     - apt
     - ufw
     - git
+    - python
