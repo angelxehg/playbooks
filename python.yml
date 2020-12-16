@@ -1,7 +1,7 @@
 ---
 - vars_files:
     - vars.yml
-  hosts: all
+  hosts: "{{ selected_hosts }}"
   roles:
     - apt
     - ufw
