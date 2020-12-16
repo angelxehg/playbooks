@@ -1,9 +1,4 @@
-- name: packages are up to date
-  become: yes
-  apt:
-    upgrade: dist
-
-- name: required repositories are present
+- name: required repository is present
   become: yes
   apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/ubuntu/20.04/prod focal main

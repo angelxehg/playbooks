@@ -24,6 +24,8 @@ Ejecución de los playbooks
 
 - Instalación de NodeJS: `ansible-playbook -i hosts.yml nodejs.yml`
 
+- Instalación de .NET: `ansible-playbook -i hosts.yml dotnet.yml`
+
 - Instalación de Docker: `ansible-playbook -i hosts.yml docker.yml`
 
 - Instalación de MongoDB: `ansible-playbook -i hosts.yml mongodb.yml`

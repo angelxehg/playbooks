@@ -1,0 +1,9 @@
+---
+- vars_files:
+    - vars.yml
+  hosts: all
+  roles:
+    - apt
+    - ufw
+    - git
+    - dotnet
