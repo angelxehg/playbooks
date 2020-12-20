@@ -4,11 +4,8 @@
     pkg:
       - python-is-python3
       - python3-pip
+      - python3-virtualenv
     state: present
-
-- name: "virtualenv is present"
-  pip:
-    name: "virtualenv"
 
 - name: "django is present"
   pip:
