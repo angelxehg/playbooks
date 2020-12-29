@@ -3,12 +3,10 @@ all:
     localhost:
       ansible_host: 127.0.0.1
       ansible_port: 22
+      # Nombre del usuario
       ansible_user: "angel"
       # Ubicación de la clave privada
       ansible_ssh_private_key_file: "~/.ssh/id_rsa"
-      # Contraseña de SUDO
-      ansible_su_user: "angel"
-      ansible_become_password: ""
   vars:
     # Git configuration
     git_user_name: Angel Hurtado
