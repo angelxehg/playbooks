@@ -1,4 +1,4 @@
-local:
+all:
   hosts:
     localhost:
       ansible_host: 127.0.0.1
@@ -10,4 +10,5 @@ local:
       ansible_su_user: "angel"
       ansible_become_password: ""
   vars:
+    # Interprete Python
     ansible_python_interpreter: /usr/bin/python3
