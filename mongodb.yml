@@ -1,7 +1,5 @@
 ---
-- vars_files:
-    - vars.yml
-  hosts: all
+- hosts: all
   roles:
     - apt
     - ufw

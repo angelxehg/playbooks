@@ -10,5 +10,8 @@ all:
       ansible_su_user: "angel"
       ansible_become_password: ""
   vars:
+    # Git configuration
+    git_user_name: Angel Hurtado
+    git_user_email: contact@angelxehg.com
     # Interprete Python
     ansible_python_interpreter: /usr/bin/python3
