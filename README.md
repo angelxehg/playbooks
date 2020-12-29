@@ -1,6 +1,6 @@
 # Playbooks
 
-Colección de Ansible Playbooks para configurar distintos Stacks
+Colección de Ansible Playbooks para configurar automáticamente distintos Stacks de desarrollo.
 
 ## Preparación
 
@@ -8,22 +8,20 @@ Configuración de la máquina Host
 
 - Instalar Ansible: `sudo apt install ansible whois -y`
 
-- Copiar archivos de configuración:
-  - Hosts: `cp ./config/hosts.yml ./`
-  - Variables: `cp ./config/vars.yml ./`
+- Crear archivo de Hosts: `cp ./hosts/example.yml ./hosts/localhost.yml`
 
 - Asegurate que tu clave privada tenga los permisos correctos: `chmod 600 [KEY]`
 
 ## Ejecución
 
-Ejecución de los playbooks
+Ejecución de los playbooks. Se pedirá la contraseña de SUDO:
 
-- Configuración minima: `ansible-playbook -i hosts.yml minimal.yml`
+- Configuración minima: `ansible-playbook -i ./hosts/localhost.yml minimal.yml -K`
 
-- Instalación de Python: `ansible-playbook -i hosts.yml python.yml`
+- Instalación de Python: `ansible-playbook -i ./hosts/localhost.yml python.yml -K`
 
-- Instalación de NodeJS: `ansible-playbook -i hosts.yml nodejs.yml`
+- Instalación de NodeJS: `ansible-playbook -i ./hosts/localhost.yml nodejs.yml -K`
 
-- Instalación de Docker: `ansible-playbook -i hosts.yml docker.yml`
+- Instalación de Docker: `ansible-playbook -i ./hosts/localhost.yml docker.yml -K`
 
-- Instalación de MongoDB: `ansible-playbook -i hosts.yml mongodb.yml`
+- Instalación de MongoDB: `ansible-playbook -i ./hosts/localhost.yml mongodb.yml -K`

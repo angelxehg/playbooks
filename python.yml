@@ -1,9 +1,19 @@
 ---
-- vars_files:
-    - vars.yml
-  hosts: "{{ selected_hosts }}"
-  roles:
-    - apt
-    - ufw
-    - git
-    - python
+- hosts: all
+  tasks:
+    - name: "apt : packages are up to date"
+      become: "true"
+      apt:
+        upgrade: "yes"
+        update_cache: "yes"
+    - name: "apt : required packages are present"
+      become: yes
+      apt:
+        pkg:
+          - python-is-python3
+          - python3-pip
+          - python3-virtualenv
+        state: present
+    - name: "pip : django is present"
+      pip:
+        name: "django"
