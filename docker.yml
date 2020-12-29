@@ -1,7 +1,32 @@
 ---
 - hosts: all
-  roles:
-    - apt
-    - ufw
-    - git
-    - docker
+  tasks:
+    - name: "apt : packages are up to date"
+      become: "true"
+      apt:
+        upgrade: "yes"
+        update_cache: "yes"
+    - name: "apt : required packages are present"
+      become: yes
+      apt:
+        pkg:
+          - docker
+          - docker-compose
+        state: present
+    - name: "os : docker service is active"
+      become: yes
+      service:
+        name: docker
+        state: started
+    - name: "os : group 'docker' is present"
+      become: yes
+      group:
+        name: www
+        state: present
+    - name: "os : '{{ ansible_user }}' is in 'docker' group"
+      become: yes
+      user:
+        name: "{{ ansible_user }}"
+        groups: [docker]
+        append: yes
+

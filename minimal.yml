@@ -1,10 +1,38 @@
 ---
 - hosts: all
-  roles:
-    - apt
-    - ufw
-    - git
   tasks:
+    - name: "apt : packages are up to date"
+      become: "true"
+      apt:
+        upgrade: "yes"
+        update_cache: "yes"
+    - name: "apt: basic packages are present"
+      become: yes
+      apt:
+        pkg:
+          - git
+          - htop
+          - tmux
+          - wget
+        state: present
+    - name: "ufw : firewall rule 'ssh' is limited"
+      become: yes
+      ufw:
+        rule: limit
+        port: ssh
+        proto: tcp
+      notify:
+        - enable ufw
+    - name: "git : global user.name is set"
+      git_config:
+        name: user.name
+        scope: global
+        value: "{{ git_user_name }}"
+    - name: "git : global user.email is set"
+      git_config:
+        name: user.email
+        scope: global
+        value: "{{ git_user_email }}"
     - name: "os : 'max_user_watches' is set to 524288"
       become: yes
       lineinfile:
@@ -13,6 +41,11 @@
       notify:
         - configure max_user_watches
   handlers:
+    - name: enable ufw
+      become: yes
+      ufw:
+        state: enabled
+        policy: deny
     - name: configure max_user_watches
       become: yes
       command: sysctl -p

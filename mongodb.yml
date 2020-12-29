@@ -1,7 +1,19 @@
 ---
 - hosts: all
-  roles:
-    - apt
-    - ufw
-    - git
-    - mongodb
+  tasks:
+    - name: "apt : packages are up to date"
+      become: "true"
+      apt:
+        upgrade: "yes"
+        update_cache: "yes"
+    - name: "apt : required packages are present"
+      become: yes
+      apt:
+        pkg:
+          - mongodb
+        state: present
+    - name: "os : mongodb service is active"
+      become: yes
+      service:
+        name: mongodb
+        state: started
