@@ -10,6 +10,6 @@ all:
   vars:
     # Git configuration
     git_user_name: Angel Hurtado
-    git_user_email: contact@angelxehg.com
+    git_user_email: sudo@angelxehg.com
     # Interprete Python
     ansible_python_interpreter: /usr/bin/python3
