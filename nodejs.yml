@@ -11,7 +11,6 @@
       apt:
         pkg:
           - nodejs
-          - npm
         state: present
     - name: "npm : global directory is present"
       file:
